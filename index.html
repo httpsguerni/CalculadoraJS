@@ -113,6 +113,27 @@
                    document.getElementById("resultado").innerHTML = eval(resultado)
                 }
             }
+
+            document.addEventListener("keydown", function(e) {
+                const teclasNumericas = "0123456789.";
+                if (teclasNumericas.includes(e.key)) {
+                    inserirVal(e.key);
+                } else if (e.key === "+" || e.key === "-") {
+                    inserirVal(e.key);
+                } else if (e.key === "*") {
+                    inserirVal("*");
+                } else if (e.key === "/") {
+                    e.preventDefault();
+                    inserirVal("/");
+                } else if (e.key === "Enter" || e.key === "=") {
+                    e.preventDefault();
+                    calcular();
+                } else if (e.key === "Backspace") {
+                    limparCE();
+                } else if (e.key === "Escape") {
+                    limparResultado();
+            }
+        });
         </script>
     </footer>
 </body>
